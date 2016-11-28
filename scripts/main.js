@@ -3,22 +3,43 @@
 var teams_data = {
   "team1": team1,
   "team2": team2,
+  "team3": team3,
+  "team4": team4,
+  "team5": team5,
+  "team6": team6,
+  "team7": team7,
+  "team8": team8,
 }
 
-var NormalCft = 1.12
-
 function try_score(team, _try) {
+  var proj_score;
   if (team.switch_plan > 5) {
-    var proj_score = 2 * NormalCft * team.switch_plan * team[_try].switch;
+    proj_score = 2.24 * team.switch_type_plan * team[_try].switch;
   } else {
-    var proj_score = 0;
+    proj_score = 0;
   }
-  var node_score = 10 * team[_try].node;
-
+  var effects_score = Math.min(10 * team[_try].effect, 40);
+  var time_score = team[_try].work_time - 40;
+  var prep_score;
+  if (team[_try].prep_time > 300) {
+    prep_score = -20;
+  } else if (team[_try].prep_time < 180) {
+    prep_score = 20;
+  } else {
+    prep_score = 0;
+  }
+  var time_penal = 0;
+  if (team[_try].work_time > 90) {
+    time_penal = (team[_try].work_time - 90) * 5;
+  }
+  var excess_stage_time_penal = (team[_try].excess_time_stage_time - 15 * team[_try].excess_time_stage_count) * 5;
+  var not_on_time_penal = 5 * team[_try].not_on_time_element_count;
+  var manual_restart_penal = 50 * team[_try].manual_restart_count;
+  return proj_score + effects_score + time_score + prep_score - time_penal - excess_stage_time_penal - not_on_time_penal - manual_restart_penal;
 }
 
 function score(team) {
-
+  return average(try_score(team, "try_1"), try_score(team, "try_2"));
 }
 
 
@@ -44,7 +65,7 @@ function average(first, second) {
   }
 }
 
-function set_vars() {
+function set_individual_vars() {
   var team = teams_data[current_team];
   document.getElementById("team_name").innerHTML = team.name;
   document.getElementById("switch_plan").innerHTML = team.switch_plan;
@@ -73,6 +94,37 @@ function set_vars() {
   document.getElementById("prep_time_average").innerHTML = average(team.try_1.prep_time, team.try_2.prep_time);
 
   document.getElementById("stability").innerHTML = stability(team);
-  document.getElementById("score").innerHTML = team.score;
+  document.getElementById("score").innerHTML = score(team);
 }
-set_vars();
+
+function set_common_table() {
+  var i;
+  for (i = 1; i <= 8; i++) {
+    var team = teams_data["team" + i.toString()];
+	document.getElementById("team" + i.toString() + "_name").innerHTML = team.name;
+	document.getElementById("team" + i.toString() + "_univer").innerHTML = team.univer;
+    document.getElementById("team" + i.toString() + "_elements").innerHTML = team.switch_plan + team.effect_plan + team.node_plan;
+    document.getElementById("team" + i.toString() + "_stability").innerHTML = stability(team);
+    document.getElementById("team" + i.toString() + "_score").innerHTML = score(team);
+    document.getElementById("team" + i.toString() + "_votes").innerHTML = team.votes;
+    document.getElementById("team" + i.toString() + "_vip_score").innerHTML = team.vip_score;
+    document.getElementById("team" + i.toString() + "_price").innerHTML = team.price;
+    document.getElementById("team" + i.toString() + "_profit").innerHTML = (score(team) + team.vip_score) * 100 - team.price;
+  }
+}
+
+if (!(table_type == "individual")) {
+  document.getElementById("individual_table").style.display = "none";
+} else {
+  set_individual_vars();
+}
+if (!(table_type == "small" || table_type == "full")) {
+  document.getElementById("common_table").style.display = "none";
+} else {
+  set_common_table();
+  if (table_type == "small") {
+    document.getElementById("large1").style.display = "none";
+    document.getElementById("large2").style.display = "none";
+    document.getElementById("large3").style.display = "none";
+  }
+}

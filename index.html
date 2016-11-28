@@ -9,11 +9,17 @@
   <script src="data/current.js" async></script>
   <script src="data/team1.js" async></script>
   <script src="data/team2.js" async></script>
+  <script src="data/team3.js" async></script>
+  <script src="data/team4.js" async></script>
+  <script src="data/team5.js" async></script>
+  <script src="data/team6.js" async></script>
+  <script src="data/team7.js" async></script>
+  <script src="data/team8.js" async></script>
   <script src="scripts/main.js" async></script>
 </head>
 
 <body>
-<table border="1">
+<table border="1" id="individual_table">
   <th colspan="4" id="team_name"></th>
   <tr>
     <th class="row_name">Номер попытки</th>
@@ -76,6 +82,109 @@
     <th id="score" colspan="3"></th>
   </tr>
 </table>
+
+<table border="1" id="common_table">
+  <tr>
+    <td width="20%">Название команды</td>
+    <th width="10%" id="team1_name">М16-ЭПА</th>
+    <th width="10%" id="team2_name">Механики</th>
+    <th width="10%" id="team3_name">Парадокс</th>
+    <th width="10%" id="team4_name">Гнилая акула</th>
+    <th width="10%" id="team5_name">Ядерный карандаш</th>
+    <th width="10%" id="team6_name">ТЭФ</th>
+    <th width="10%" id="team7_name">Котики</th>
+    <th width="10%" id="team8_name">Лицеисты</th>
+  </tr>
+  <tr>
+    <td>ВУЗ</td>
+    <td id="team1_univer">НГТУ</td>
+    <td id="team2_univer">ЮУрГУ</td>
+    <td id="team3_univer">ТПУ</td>
+    <td id="team4_univer">УрФУ</td>
+    <td id="team5_univer">ВИТИ</td>
+    <td id="team6_univer">ИГЭУ</td>
+    <td id="team7_univer">МИФИ</td>
+    <td id="team8_univer">Вне конкурса</td>
+  </tr>
+  <tr>
+    <td>Заявлено элементов</td>
+    <td id="team1_elements"></td>
+    <td id="team2_elements"></td>
+    <td id="team3_elements"></td>
+    <td id="team4_elements"></td>
+    <td id="team5_elements"></td>
+    <td id="team6_elements"></td>
+    <td id="team7_elements"></td>
+    <td id="team8_elements"></td>
+  </tr>
+  <tr>
+    <td>Коэффициент стабильности</td>
+    <td id="team1_stability"></td>
+    <td id="team2_stability"></td>
+    <td id="team3_stability"></td>
+    <td id="team4_stability"></td>
+    <td id="team5_stability"></td>
+    <td id="team6_stability"></td>
+    <td id="team7_stability"></td>
+    <td id="team8_stability"></td>
+  </tr>
+  <tr>
+    <td>Техническая оценка</td>
+    <td id="team1_score"></td>
+    <td id="team2_score"></td>
+    <td id="team3_score"></td>
+    <td id="team4_score"></td>
+    <td id="team5_score"></td>
+    <td id="team6_score"></td>
+    <td id="team7_score"></td>
+    <td id="team8_score"></td>
+  </tr>
+  <tr>
+    <td>Голоса зрителей (%)</td>
+    <td id="team1_votes"></td>
+    <td id="team2_votes"></td>
+    <td id="team3_votes"></td>
+    <td id="team4_votes"></td>
+    <td id="team5_votes"></td>
+    <td id="team6_votes"></td>
+    <td id="team7_votes"></td>
+    <td id="team8_votes"></td>
+  </tr>
+  <tr id="large1">
+    <td>Оценка заказчика</td>
+    <td id="team1_vip_score"></td>
+    <td id="team2_vip_score"></td>
+    <td id="team3_vip_score"></td>
+    <td id="team4_vip_score"></td>
+    <td id="team5_vip_score"></td>
+    <td id="team6_vip_score"></td>
+    <td id="team7_vip_score"></td>
+    <td id="team8_vip_score"></td>
+  </tr>
+  <tr id="large2">
+    <td>Стоимость установки</td>
+    <td id="team1_price"></td>
+    <td id="team2_price"></td>
+    <td id="team3_price"></td>
+    <td id="team4_price"></td>
+    <td id="team5_price"></td>
+    <td id="team6_price"></td>
+    <td id="team7_price"></td>
+    <td id="team8_price"></td>
+  </tr>
+  <tr id="large3">
+    <td>Прибыль</td>
+    <td id="team1_profit"></td>
+    <td id="team2_profit"></td>
+    <td id="team3_profit"></td>
+    <td id="team4_profit"></td>
+    <td id="team5_profit"></td>
+    <td id="team6_profit"></td>
+    <td id="team7_profit"></td>
+    <td id="team8_profit"></td>
+  </tr>
+</table>
+
 </body>
 
 </html>

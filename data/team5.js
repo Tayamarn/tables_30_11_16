@@ -1,6 +1,6 @@
-var team1 = {
-    "name": "М16-ЭПА",
-    "univer": "НГТУ",
+var team5 = {
+    "name": "Ядерный карандаш",
+    "univer": "ВИТИ",
     "switch_plan": 11,
     "switch_type_plan": 6,
     "effect_plan": 1,

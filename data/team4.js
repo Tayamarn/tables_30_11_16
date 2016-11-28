@@ -1,10 +1,10 @@
-var team1 = {
-    "name": "М16-ЭПА",
-    "univer": "НГТУ",
-    "switch_plan": 11,
+var team4 = {
+    "name": "Гнилая акула",
+    "univer": "УрФУ",
+    "switch_plan": 9,
     "switch_type_plan": 6,
-    "effect_plan": 1,
-    "node_plan": 0,
+    "effect_plan": 2,
+    "node_plan": 1,
     "votes": 0,
     "vip_score": 0,
     "price": 0,
