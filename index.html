@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="scripts/jquery-3.1.1.min.js"></script>
+  <script src="scripts/autoreload.js"></script>
+  <script src="data/current.js" async></script>
+  <script src="data/team1.js" async></script>
+  <script src="data/team2.js" async></script>
+  <script src="scripts/main.js" async></script>
+</head>
+
+<body>
+<table border="1">
+  <th colspan="4" id="team_name"></th>
+  <tr>
+    <th class="row_name">Номер попытки</th>
+    <th class="first_try">1</th>
+    <th class="second_try">2</th>
+    <th class="average">Среднее</th>
+  </tr>
+  <tr>
+    <td>Заявлено переключателей</td>
+    <td id="switch_plan" colspan="3"></td>
+  </tr>
+  <tr>
+    <td>Заявлено спецэффектов</td>
+    <td id="effect_plan" colspan="3"></td>
+  </tr>
+  <tr>
+    <td>Заявлено узлов</td>
+    <td id="node_plan" colspan="3"></td>
+  </tr>
+  <tr>
+    <td>Заявлено типов переключателей</td>
+    <td id="switch_type_plan" colspan="3"></td>
+  </tr>
+  <tr>
+    <td>Сработало переключателей</td>
+    <td id="switch_real_1"></td>
+    <td id="switch_real_2"></td>
+    <td id="switch_real_average"></td>
+  </tr>
+  <tr>
+    <td>Сработало спецэффектов</td>
+    <td id="effect_real_1"></td>
+    <td id="effect_real_2"></td>
+    <td id="effect_real_average"></td>
+  </tr>
+  <tr>
+    <td>Сработало узлов</td>
+    <td id="node_real_1"></td>
+    <td id="node_real_2"></td>
+    <td id="node_real_average"></td>
+  </tr>
+  <tr>
+    <td>Полное время работы (с)</td>
+    <td id="work_time_1"></td>
+    <td id="work_time_2"></td>
+    <td id="work_time_average"></td>
+  </tr>
+  <tr>
+    <td>Время подготовки к запуску</td>
+    <td id="prep_time_1"></td>
+    <td id="prep_time_2"></td>
+    <td id="prep_time_average"></td>
+  </tr>
+  <tr>
+    <th>Итоговая стабильность</th>
+    <th id="stability" colspan="3"></th>
+  </tr>
+  <tr>
+    <th>Итог измерений</th>
+    <th id="score" colspan="3"></th>
+  </tr>
+</table>
+</body>
+
+</html>

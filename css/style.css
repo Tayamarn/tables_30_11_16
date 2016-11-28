@@ -1,0 +1,43 @@
+table {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border-collapse: collapse;
+	/*border: none;*/
+	#border-collapse: separate;
+	#border: 1px solid black;
+	width:100%;
+	margin-top: 1%;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	/* Здесь настраиваем шрифт/расстояние между строками таблицы*/
+	line-height: 1.0em;
+	font-size: 20.5pt;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+    /*border: none;*/
+	#border-collapse: collapse;
+	#border: 1px solid black;
+	/*font-size: 21pt;*/
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+    /*border: none;*/
+	#border-collapse: collapse;
+	#border: 1px solid black;
+	line-height: 1.5em;
+	/*font-size: 21pt;*/
+}
+
+th.row_name {
+  width: 40%
+}
+th.first_try, th.second_try, th.average {
+  width: 20%
+}
