@@ -1,5 +1,16 @@
 "use strict";
 
+if (table_type == "individual") {
+  document.getElementById("common_table").style.display = "none";
+} else if (table_type == "small") {
+  document.getElementById("individual_table").style.display = "none";
+  document.getElementById("large1").style.display = "none";
+  document.getElementById("large2").style.display = "none";
+  document.getElementById("large3").style.display = "none";
+} else {
+  document.getElementById("individual_table").style.display = "none";
+}
+
 var teams_data = {
   "team1": team1,
   "team2": team2,
@@ -101,8 +112,8 @@ function set_common_table() {
   var i;
   for (i = 1; i <= 8; i++) {
     var team = teams_data["team" + i.toString()];
-	document.getElementById("team" + i.toString() + "_name").innerHTML = team.name;
-	document.getElementById("team" + i.toString() + "_univer").innerHTML = team.univer;
+    document.getElementById("team" + i.toString() + "_name").innerHTML = team.name;
+    document.getElementById("team" + i.toString() + "_univer").innerHTML = team.univer;
     document.getElementById("team" + i.toString() + "_elements").innerHTML = team.switch_plan + team.effect_plan + team.node_plan;
     document.getElementById("team" + i.toString() + "_stability").innerHTML = stability(team);
     document.getElementById("team" + i.toString() + "_score").innerHTML = score(team);
@@ -113,18 +124,10 @@ function set_common_table() {
   }
 }
 
-if (!(table_type == "individual")) {
-  document.getElementById("individual_table").style.display = "none";
-} else {
+if (table_type == "individual") {
   set_individual_vars();
 }
-if (!(table_type == "small" || table_type == "full")) {
-  document.getElementById("common_table").style.display = "none";
-} else {
+
+if ((table_type == "small") || (table_type == "full")) {
   set_common_table();
-  if (table_type == "small") {
-    document.getElementById("large1").style.display = "none";
-    document.getElementById("large2").style.display = "none";
-    document.getElementById("large3").style.display = "none";
-  }
 }
