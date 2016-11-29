@@ -22,6 +22,11 @@ var teams_data = {
   "team8": team8,
 }
 
+function roundToOne(num) {
+    return +(Math.round(num + "e+1")  + "e-1");
+}
+
+
 function try_score(team, _try) {
   var proj_score;
   if (team.switch_plan > 5) {
@@ -50,22 +55,22 @@ function try_score(team, _try) {
 }
 
 function score(team) {
-  return average(try_score(team, "try_1"), try_score(team, "try_2"));
+  return roundToOne(average(try_score(team, "try_1"), try_score(team, "try_2")));
 }
 
 
 function try_stability(team, _try) {
   if (team.node_plan == 0) {
-    return ((10 * team[_try].switch / team.switch_plan) + (3 * team[_try].effect / team.effect_plan)) / 13
+    return ((10 * team[_try].switch / team.switch_plan) + (3 * team[_try].effect / team.effect_plan)) / 13;
   }
-  return ((10 * team[_try].switch / team.switch_plan) + (3 * team[_try].effect / team.effect_plan) + (team[_try].node / team.node_plan)) / 14
+  return ((10 * team[_try].switch / team.switch_plan) + (3 * team[_try].effect / team.effect_plan) + (team[_try].node / team.node_plan)) / 14;
 }
 
 function stability(team) {
   if (!(typeof(team.try_1.switch) == "number" && typeof(team.try_1.effect) == "number" && typeof(team.try_1.node) == "number" && typeof(team.try_2.switch) == "number" && typeof(team.try_2.effect) == "number" && typeof(team.try_2.node) == "number")) {
-    return ""
+    return "";
   }
-  return Math.min(try_stability(team, 'try_1'), try_stability(team, 'try_2'))
+  return roundToOne(Math.min(try_stability(team, 'try_1'), try_stability(team, 'try_2')));
 }
 
 function average(first, second) {
